@@ -42,15 +42,19 @@ bool LinkedList<T>::search(T value) const
 	Node<T>* temp = m_front;
 	bool isFound = false;
 	bool done = false;
-  while (temp != nullptr||done == false) {
-  	if(temp->getValue()==value){
-			isFound=true;
-			done=true;
+	if(this->isEmpty()){
+		isFound  = false;
+	}
+	else{
+		for(int i = 0;i<size();i++)
+		if(temp->getValue()==value){
+			isFound = true;
+			return(isFound);
 		}
 		else{
 			temp = temp->getNext();
 		}
-  }
+	}
 	/** TODO
 		Fix this method
 	*/
@@ -117,17 +121,7 @@ bool LinkedList<T>::removeBack()
 		Fix this method
 	*/
 	Node<T>* temp = m_front;
-	for (int i = 1; i < m_size; i++) {
-		/* code */
-		temp = temp->getNext();
-	}
-	secondintoLast = temp;
-	lastNode = secondintoLast->getNext();
-	delete lastNode;
-	secondintoLast->setNext(nullptr);
-	m_size--;
-	isRemoved = true;
-
+	
 	return(isRemoved);
 }
 
