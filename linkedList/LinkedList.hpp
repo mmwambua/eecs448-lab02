@@ -121,7 +121,18 @@ bool LinkedList<T>::removeBack()
 		Fix this method
 	*/
 	Node<T>* temp = m_front;
-	
+	if(!isEmpty()){
+		for (int i = 2; i < m_size; i++) {
+			/* code */
+			temp = temp->getNext();
+		}
+		secondintoLast = temp;
+		lastNode = secondintoLast->getNext();
+		delete lastNode;
+		secondintoLast->setNext(nullptr);
+		m_size--;
+		isRemoved = true;
+	}
 	return(isRemoved);
 }
 
