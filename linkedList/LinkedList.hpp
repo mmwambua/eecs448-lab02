@@ -41,7 +41,6 @@ bool LinkedList<T>::search(T value) const
 {
 	Node<T>* temp = m_front;
 	bool isFound = false;
-	bool done = false;
 	if(this->isEmpty()){
 		isFound  = false;
 	}
